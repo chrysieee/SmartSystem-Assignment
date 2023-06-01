@@ -1,0 +1,38 @@
+------------------------
+| BACKEND IMPROVEMENTS |
+------------------------
+1. Remove all unnecessary codes (Commented codes, unused functions etc)
+	- Ensure readilbiliy and clean codes
+2.  Logs (Implemented)
+	- Add more logs to aid in troubleshooting issues
+	- Make use of logging levels 
+	- Implementations: Example in MailsController.cs
+3. Use #region #endregion to group codes in same category (Implemented)
+	- For example, validations can be put in private methods and group together in a region
+	- Implementations: Example in MailService.cs line 145, MailsController.cs 
+4. Add backend validation (Implemented)
+	- Backend message can be stored in separate constant folder (WebApi.Constants.ErrorMessageConstants)
+	- For example add backend validation for parameters for each functions
+	- Implementations: Example in MailsController.cs 
+5. SQL string can be stored in separate constant folder (Implemented)
+	- For readibility and maintainability
+	- Implementations: Stored in WebApi.Constants.SqlConstants
+6. Move method to call data provider out of controller (Implemented)
+	- Controller's responsibility focuses on calling required business logic
+	- Hence it is preferred for the responsiblility to call data provider directly to be stored in separate folder structure 
+	- In this project, I have implemented it in MailsService to suit the project's structure as MailsService consists of 
+	  DB related codes
+	- In doing so, in the future when the project requires to take on new data provider, the code base will be more scalable 
+	  and easier to maintain and implement
+
+-------------------------
+| FRONTEND IMPROVEMENTS |
+-------------------------
+Note: Sorry I am not very familiar with Angular hence I may have limited knowledge on this
+
+1. Change implementations of Resolve in router to using an injectable functional resolvers
+	- From Angular documentations, resolve in router will be depreciated
+2. Add toastr after success or unsuccessful actions
+	- To notify users whether their actions (For eg login) are successful / not successful
+3. Add error toastr and logs when request failed 
+	- For example when failed to receive response
